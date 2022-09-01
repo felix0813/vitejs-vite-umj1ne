@@ -1,7 +1,12 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+import { ref, reactive, toRef } from 'vue';
+const emitNum = ref(0);
+const handleEmit = (num) => {
+  emitNum.value = num;
+};
 </script>
 
 <template>
@@ -12,8 +17,9 @@ import HelloWorld from './components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+    <p>{{ emitNum }}</p>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue" @click-emit="handleEmit" />
 </template>
 
 <style scoped>
