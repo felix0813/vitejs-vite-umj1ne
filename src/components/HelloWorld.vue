@@ -1,5 +1,6 @@
 <script setup>
 import { ref, reactive, toRef } from 'vue';
+import Counter from './Counter.vue';
 
 defineProps({});
 const emit = defineEmits(['click-emit']);
@@ -83,4 +84,5 @@ const emitEvent = (num) => {
   <br />
   <button @click="emitEvent(1)">emit1</button>
   <button @click="emitEvent(2)">emit2</button>
+  <Component :is="Counter" />
 </template>
